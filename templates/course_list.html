@@ -1,0 +1,42 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Course List
+{% endblock %}
+
+{% block main %}
+<form action="/course_list" method="post">
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Course</th>
+                <th>Credit</th>
+                <th>Score</th>
+                <th>Date Added</th>
+
+            </tr>
+        </thead>
+        <tbody>
+            {% for transaction in transactions %}
+                <tr>
+                    <td>{{ transaction.course_name }}</td>
+                    <td>{{ transaction.credit }}</td>
+                    <td>{{ transaction.score }}</td>
+                    <td>{{ transaction.time }}</td>
+                </tr>
+            {% endfor %}
+
+        </tbody>
+        <tfoot>
+            <tr>
+                <td>
+                    <button class="btn btn-primary" type="submit">Delete Rows</button>
+                </td>
+
+            </tr>
+        </tfoot>
+
+
+    </table>
+</form>
+{% endblock %}

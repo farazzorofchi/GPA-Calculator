@@ -1,0 +1,40 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Transcript
+{% endblock %}
+
+{% block main %}
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Course</th>
+                <th>Credit</th>
+                <th>Score</th>
+
+            </tr>
+        </thead>
+
+        <tbody>
+            {% for course in courses %}
+                <tr>
+                    <td>{{ course.course_name }}</td>
+                    <td>{{ course.credit }}</td>
+                    <td>{{ course.score }}</td>
+                </tr>
+            {% endfor %}
+
+
+        </tbody>
+
+        <tfoot>
+            <tr>
+                <td colspan="4"></td>
+                <td>GPA: {{ GPA }}</td>
+            </tr>
+        </tfoot>
+
+
+    </table>
+
+{% endblock %}
